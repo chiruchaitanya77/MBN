@@ -1,11 +1,14 @@
+"use client";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Contact } from "@/components/sections/Contact";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import heroBg from "@assets/generated_images/cinematic_modern_construction_site_at_twilight.png";
-import Footer from "@/pages/footer.tsx";
+import heroBg from "../../../attached_assets/generated_images/cinematic_modern_construction_site_at_twilight.png";
+import {Footer} from "@/components/layout/Footer";
+import Image from "next/image";
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState("all");
@@ -65,7 +68,7 @@ export default function ProjectsPage() {
       <PageHeader
         title="Our Projects"
         subtitle="A Showcase of Engineering Excellence and Design"
-        backgroundImage={heroBg}
+        backgroundImage={heroBg.src}
       />
 
       <main>
@@ -97,11 +100,12 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.4 }}
                   className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden aspect-[4/3] mb-4">
-                    <img
+                  <div className="relative overflow-hidden aspect-4/3 mb-4">
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-white border border-white px-4 py-2 uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-colors">

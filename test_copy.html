@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Status Update - MBN Construction</title>
+</head>
+<body style="margin:0; padding:0; background:#f4f4f4; font-family:Arial, Helvetica, sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f4f4f4; padding:20px 0;">
+    <tr>
+        <td align="center">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+
+                <!-- Header: Logo on Right, Name on Left -->
+                <tr>
+                    <td style="background:#1a1a1a; padding:30px 40px;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <!-- Left: Company Name -->
+                                <td style="color:#ff0000; font-size:28px; font-weight:bold; letter-spacing:1px;">
+                                    MBN <span style="color:#fff;">Construction</span><br>
+                                    <span style="color:#f4f4f4; font-size:12px; font-weight: lighter; letter-spacing: 3px; display:block; line-height:14px;">
+	                                                    Private Limited
+	                                                </span>
+                                </td>
+
+                                <!-- Right: Logo -->
+                                <td align="right">
+                                    <img src="https://res.cloudinary.com/dodwea2yd/image/upload/v1765491050/3d_logo_hrl7hj.png"
+                                         alt="MBN Construction"
+                                         width="180"
+                                         style="display:block; border:0;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Main Content -->
+                <tr>
+                    <td style="padding:40px;">
+                        <h2 style="margin:0 0 20px; font-size:22px; color:#1a1a1a;">
+                            Dear ${name},
+                        </h2>
+
+                        <p style="margin:0 0 25px; font-size:16px; color:#333; line-height:1.7;">
+                            We’re happy to inform you that the status of your <strong>quote request</strong> has been updated.
+                        </p>
+
+                        <!-- Status Badge -->
+                        <div style="padding:12px 20px; border-radius:8px; border-left:6px solid #ffc107; margin:30px 0;">
+                            <p style="margin:0; font-size:15px;">
+                                <strong>Your quote is now:</strong>
+                                <span style="display:inline-block; color: orangered; padding:8px 10px; border-radius:6px; margin-left:12px; font-size:12px; text-transform:uppercase; letter-spacing:1px;">
+	                                                ${status}
+	                                            </span>
+                            </p>
+                        </div>
+
+                        <!-- Admin Notes -->
+                        ${admin_notes ? `
+                        <div style="background:#f9fafb; border-left:5px solid #f97316; padding:20px; margin:25px 0; border-radius:0 8px 8px 0; font-style:italic; font-size: 1rem; color:#444;">
+                            <strong>Notes from our team:</strong><br>
+                            ${admin_notes.replace(/\n/g, "<br>")}
+                        </div>` : ''}
+
+                        <p style="margin:30px 0; font-size:16px; color:#333; line-height:1.7;">
+                            Our team is working on your project and will reach out soon with next steps.
+                        </p>
+
+                        <p style="margin:25px 0 0; font-size:16px; color:#333;">
+                            Need to discuss anything urgently?<br>
+                            Feel free to contact us directly:
+                        </p>
+
+                        <div style="margin:20px 0; padding:15px; background:#f0f0f0; border-radius:8px; font-size:15px;">
+                            <p style="margin:8px 0;">
+                                Phone: <a href="tel:9948314455" style="font-size:14px; font-weight:bold;">9948314455</a>
+                            </p>
+                            <p style="margin:8px 0;">
+                                Email: <a href="mailto:mbnaik1987@gmail.com" style="font-size:14px; font-weight:bold;">mbnaik1987@gmail.com</a>
+                            </p>
+                        </div>
+
+                        <p style="margin:35px 0 10px; font-size:16px; color:#333;">
+                            Thank you for trusting MBN Construction with your project.<br><br>
+                            <strong style="color: seagreen; font-size: 20px">We look forward to building with you!</strong>
+                        </p>
+
+                        <p style="margin-top:30px; color:#555;">
+                            Best regards,<br>
+                            <strong style="color:#ff0000;">The MBN Construction Team</strong>
+                        </p>
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td style="background:#1a1a1a; color:#aaaaaa; padding:30px; text-align:center; font-size:13px;">
+                        <p style="margin:0; font-weight:bold; color:#ff0000;">MBN <span style="color:#fff;">Construction Private Limited</span></p>
+                        <p style="margin:12px 0 0;">
+                            Thukkuguda, Srisailam Highway, Mandal Maheshwaram<br>
+                            R.R. Dist - 501359, Telangana, India
+                        </p>
+                        <p style="margin:20px 0 0;">
+                            <a href="tel:9948314455" style="color:#f97316; text-decoration:none;">9948314455</a> |
+                            <a href="mailto:mbnaik1987@gmail.com" style="color:#f97316; text-decoration:none;">mbnaik1987@gmail.com</a>
+                        </p>
+                        <p style="margin-top:25px; font-size:11px; color:#777;">
+                            © 2025 MBN Construction Private Limited. All rights reserved.<br>
+                            This is an automated status update from your quote request.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,6 +1,5 @@
 // components/tracking-info-with-icons.tsx
 import Image from "next/image";
-import { Globe } from "lucide-react";
 
 type TrackingData = {
 	ip_address: string | null;
@@ -22,7 +21,7 @@ export function TrackingInfo({ data, className = "" }: TrackingInfoProps) {
 
 	// Helper: extract browser name (case-insensitive)
 	const getBrowserKey = (browserStr: string | null) => {
-		if (!browserStr) return "unknown";
+		if (!browserStr) return "internet";
 		const lower = browserStr.toLowerCase();
 		if (lower.includes("chrome")) return "chrome";
 		if (lower.includes("firefox")) return "firefox";
@@ -34,10 +33,10 @@ export function TrackingInfo({ data, className = "" }: TrackingInfoProps) {
 
 	// Helper: OS icon
 	const getOSKey = (osStr: string | null) => {
-		if (!osStr) return "unknown";
+		if (!osStr) return "unknownos";
 		const lower = osStr.toLowerCase();
 		if (lower.includes("windows")) return "windows";
-		if (lower.includes("mac") || lower.includes("os x")) return "mac";
+		if (lower.includes("mac") || lower.includes("os x")) return "ios";
 		if (lower.includes("ios") || lower.includes("ipad")) return "ios";
 		if (lower.includes("android")) return "android";
 		if (lower.includes("linux")) return "linux";
@@ -48,7 +47,7 @@ export function TrackingInfo({ data, className = "" }: TrackingInfoProps) {
 
 	// Helper: Device icon
 	const getDeviceKey = (deviceStr: string | null) => {
-		if (!deviceStr) return "unknown";
+		if (!deviceStr) return "android";
 		const lower = deviceStr.toLowerCase();
 		if (lower.includes("iphone") || lower.includes("mobile")) return "iphone";
 		if (lower.includes("ipad") || lower.includes("tablet")) return "ipad";
@@ -67,12 +66,22 @@ export function TrackingInfo({ data, className = "" }: TrackingInfoProps) {
 	return (
 		<div className={className}>
 			<h3 className="font-semibold text-lg mb-4 text-gray-800">Tracking Information</h3>
-			<div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200 shadow-sm space-y-5">
+			<div className="bg-linear-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200 shadow-sm space-y-5">
 
 				{/* Location */}
 				<div className="flex items-start gap-4">
-					<div className="bg-blue-600 p-3 rounded-lg">
-						<Globe className="h-6 w-6 text-white" />
+					{/*<div className="bg-blue-600 p-3 rounded-lg">*/}
+					{/*	<Globe className="h-6 w-6 text-white" />*/}
+					{/*</div>*/}
+					<div className="relative w-14 h-14 flex items-center justify-center">
+						<Image
+							src={`/icons/browser/web.png`}
+							alt={"Dev"}
+							width={40}
+							height={40}
+							className="object-contain drop-shadow-md hover:scale-110 transition-transform duration-200"
+							unoptimized // important for PNGs with transparency
+						/>
 					</div>
 					<div className="flex-1">
 						<p className="text-sm font-medium text-blue-900">Location</p>
@@ -85,57 +94,60 @@ export function TrackingInfo({ data, className = "" }: TrackingInfoProps) {
 
 				{/* Device */}
 				<div className="flex items-center gap-4">
-					<div className="relative w-14 h-14 bg-white rounded-xl shadow-md p-2 flex items-center justify-center border border-gray-200">
+					<div className="relative w-14 h-14 flex items-center justify-center">
 						<Image
 							src={`/icons/device/${deviceKey}.png`}
 							alt={device || "Device"}
-							width={48}
-							height={48}
-							className="object-contain"
+							width={40}
+							height={40}
+							className="object-contain drop-shadow-md hover:scale-110 transition-transform duration-200"
+							unoptimized // important for PNGs with transparency
 						/>
 					</div>
 					<div>
 						<p className="text-sm font-medium text-blue-900">Device</p>
 						<p className="text-base font-semibold text-gray-800">
-							{device === "Desktop" ? "Desktop / Laptop" : device || "Unknown Device"}
+							{device === "Desktop" ? "Desktop / Laptop" : device || "Unknown"}
 						</p>
 					</div>
 				</div>
 
 				{/* Browser */}
 				<div className="flex items-center gap-4">
-					<div className="w-14 h-14 bg-white rounded-xl shadow-md p-3 flex items-center justify-center border border-gray-200">
+					<div className="relative w-14 h-14 flex items-center justify-center">
 						<Image
 							src={`/icons/browser/${browserKey}.png`}
 							alt={browser || "Browser"}
 							width={40}
 							height={40}
-							className="object-contain"
+							className="object-contain drop-shadow-md hover:scale-110 transition-transform duration-200"
+							unoptimized // important for PNGs with transparency
 						/>
 					</div>
 					<div>
 						<p className="text-sm font-medium text-blue-900">Browser</p>
 						<p className="text-base font-semibold text-gray-800">
-							{browser || "Unknown Browser"}
+							{browser || "Unknown"}
 						</p>
 					</div>
 				</div>
 
 				{/* OS */}
 				<div className="flex items-center gap-4">
-					<div className="w-14 h-14 bg-white rounded-xl shadow-md p-3 flex items-center justify-center border border-gray-200">
+					<div className="relative w-14 h-14 flex items-center justify-center">
 						<Image
 							src={`/icons/os/${osKey}.png`}
 							alt={os || "OS"}
 							width={40}
 							height={40}
-							className="object-contain"
+							className="object-contain drop-shadow-md hover:scale-110 transition-transform duration-200"
+							unoptimized // important for PNGs with transparency
 						/>
 					</div>
 					<div>
 						<p className="text-sm font-medium text-blue-900">Operating System</p>
 						<p className="text-base font-semibold text-gray-800">
-							{os || "Unknown OS"}
+							{os || "Unknown"}
 						</p>
 					</div>
 				</div>
